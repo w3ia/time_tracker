@@ -180,13 +180,13 @@ test('deleteActivity removes its sessions; deleteProject removes everything unde
 test('state survives a reload via localStorage', () => {
   const store = new Map();
   const app1 = createApp(store);
-  app1.addProject('exalt.ai website');
+  app1.addProject('my website');
   app1.addActivity(app1.state.projects[0].id, 'deploy');
   app1.startActivity(app1.state.activities[0].id);
   app1.pauseActivity();
 
   const app2 = createApp(store); // fresh instance, same storage
-  assert.equal(app2.state.projects[0].name, 'exalt.ai website');
+  assert.equal(app2.state.projects[0].name, 'my website');
   assert.equal(app2.state.activities[0].description, 'deploy');
   assert.equal(app2.state.sessions.length, 1);
   assert.ok(app2.state.sessions[0].end !== null);
@@ -196,11 +196,11 @@ test('state survives a reload via localStorage', () => {
 
 test('render shows projects and the running activity in the hero', () => {
   const app = createApp();
-  app.addProject('exalt.ai website');
+  app.addProject('my website');
   app.addActivity(app.state.projects[0].id, 'site updates');
 
   let html = app.els.get('app').innerHTML;
-  assert.match(html, /exalt\.ai website/);
+  assert.match(html, /my website/);
   assert.match(html, /Nothing running/);
 
   app.startActivity(app.state.activities[0].id);
@@ -221,7 +221,7 @@ test('rendered output escapes hostile names', () => {
 
 test('exportCSV emits BOM, header, quoting, and correct durations', () => {
   const app = createApp();
-  app.addProject('exalt.ai website');
+  app.addProject('my website');
   const pid = app.state.projects[0].id;
   app.addActivity(pid, 'deploy, then "verify"');
   const aid = app.state.activities[0].id;
@@ -237,7 +237,7 @@ test('exportCSV emits BOM, header, quoting, and correct durations', () => {
   assert.equal(lines.length, 2);
   assert.equal(
     lines[1],
-    '"2026-06-05","exalt.ai website","deploy, then ""verify""","2026-06-05 09:00:00","2026-06-05 09:30:00","1800","0:30:00"'
+    '"2026-06-05","my website","deploy, then ""verify""","2026-06-05 09:00:00","2026-06-05 09:30:00","1800","0:30:00"'
   );
 });
 

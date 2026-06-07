@@ -221,7 +221,7 @@ function projectsHTML(t0, t1) {
   }).join('');
 
   if (!state.projects.length) {
-    html = `<div class="proj-card"><div class="empty">A blank ledger. Add your first project — e.g. “exalt.ai website” — then add activities under it.</div></div>`;
+    html = `<div class="proj-card"><div class="empty">A blank ledger. Add your first project — e.g. “my website” — then add activities under it.</div></div>`;
   }
 
   return html + `
