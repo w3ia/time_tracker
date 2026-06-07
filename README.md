@@ -1,6 +1,6 @@
-# Punchcard — personal time ledger
+# Punchcard: Personal Time Ledger
 
-A zero-dependency, single-page time tracker. Vanilla JS, no build step, no server-side anything — all data lives in your browser's `localStorage`.
+A zero-dependency, single-page time tracker. Vanilla JS, no build step, no server-side anything. All data lives in your browser's `localStorage`.
 
 ## Run it
 
@@ -12,7 +12,7 @@ then open <http://localhost:4173>. (Any static file server works; opening `index
 
 ## How it works
 
-- **Projects** group activities (e.g. *exalt.ai website* → *site updates*, *deploy*).
+- **Projects** group activities (e.g. *website* → *site updates*, *deploy*).
 - **▶ start** an activity — starting one automatically pauses whatever else was running, so context switching is one click. **❚❚ pause** stops the clock; ▶ again resumes. **✓ finish** marks it done (reopenable).
 - **Today's ledger** (right panel) shows total time, the per-project split, and top activities — your end-of-day overview.
 - **History** tab: calendar of past days; click a day to see its ledger and full session log.
